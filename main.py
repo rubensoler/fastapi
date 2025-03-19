@@ -6,8 +6,14 @@ from routes import products
 # Crear la base de datos si no existe
 Base.metadata.create_all(bind=engine)
 
-# Inicialización de FastAPI
-app = FastAPI()
+# Inicialización de FastAPI con configuración de documentación
+app = FastAPI(
+    title="Mi API FastAPI",
+    description="API desplegada en Railway",
+    version="1.0",
+    docs_url="/docs",  # Habilita la documentación en /docs
+    redoc_url="/redoc"  # Habilita la documentación alternativa en /redoc
+)
 
 # Configurar CORS
 app.add_middleware(
@@ -20,3 +26,4 @@ app.add_middleware(
 
 # Incluir las rutas
 app.include_router(products.router)
+

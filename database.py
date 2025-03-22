@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 if os.getenv("ENV") != "production":
     load_dotenv()
 
+
 # 🔍 Obtener la URL desde variables de entorno
 DATABASE_URL = os.getenv("DATABASE_URL")
 

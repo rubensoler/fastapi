@@ -8,6 +8,10 @@ from typing import List
 
 router = APIRouter()
 
+@router.get("/")
+def root():
+    return {"msg": "ok"}
+
 @router.get("/products", response_model=List[ProductSchema])
 def get_products(db: Session = Depends(get_db)):
     return get_all_products(db)
